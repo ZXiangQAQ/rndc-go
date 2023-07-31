@@ -23,13 +23,13 @@ func main() {
 	// 创建 RnDC client
 	client, err := rndc.NewRNDCClient("your bind9 server address", "algo", "secret")
 	if err != nil {
-    fmt.Printf("conn failed, err: %s\n", err.Error())
+            fmt.Printf("conn failed, err: %s\n", err.Error())
 	}
 
 	// 请求 RnDC 服务器, 并同步获取结果
 	resp, err := client.Call("sync test123.com")
 	if err != nil {
-		fmt.Printf("client call err: %s\n", err.Error())
+	    fmt.Printf("client call err: %s\n", err.Error())
 	}
 
 	// 获取 bind 返回的原生 response
