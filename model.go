@@ -156,7 +156,7 @@ func (r *CmdResponse) DeSerialize(input []byte) error {
 				return err
 			}
 		default:
-			return fmt.Errorf("未知的字段名: %s, 字段类型: %d", label, elementType)
+			logger.Warn(nil, "未知的字段名: %s, 字段类型: %d", label, elementType)
 		}
 	}
 
@@ -196,7 +196,7 @@ func (r *AuthResponse) DeSerialize(input []byte) error {
 		case "md5":
 			r.Md5 = data
 		default:
-			return fmt.Errorf("未知的字段名: %s, 字段类型: %d", label, elementType)
+			logger.Warn(nil, "未知的字段名: %s, 字段类型: %d", label, elementType)
 		}
 	}
 
@@ -245,7 +245,7 @@ func (r *CtrlResponse) DeSerialize(input []byte) error {
 		case "_nonce":
 			r.Nonce = string(data)
 		default:
-			return fmt.Errorf("未知的字段名: %s, 字段类型: %d", label, elementType)
+			logger.Warn(nil, "未知的字段名: %s, 字段类型: %d", label, elementType)
 		}
 	}
 
@@ -291,7 +291,7 @@ func (r *DataResponse) DeSerialize(input []byte) error {
 		case "text":
 			r.Text = string(data)
 		default:
-			return fmt.Errorf("未知的字段名: %s, 字段类型: %d", label, elementType)
+			logger.Warn(nil, "未知的字段名: %s, 字段类型: %d", label, elementType)
 		}
 	}
 
